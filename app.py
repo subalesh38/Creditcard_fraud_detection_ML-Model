@@ -14,11 +14,11 @@ SCALER_PATH = "scaler.pkl"
 # Load model
 try:
     with open(MODEL_PATH, "rb") as file:
-        decision_tree_model = pickle.load(file)
+        fraud_model = pickle.load(file)
     print("Model loaded successfully.")
 except Exception as e:
     print(f"Error loading model: {e}")
-    decision_tree_model = None
+    fraud_model = None
 
 # Load scaler
 try:
@@ -41,7 +41,7 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    if decision_tree_model is None or scaler is None:
+    if fraud_model is None or scaler is None:
         return jsonify({"error": "Model or scaler not loaded"}), 500
 
     try:
@@ -67,8 +67,8 @@ def predict():
         input_df = pd.DataFrame([features], columns=model_feature_columns)
 
         # Prediction
-        prediction = decision_tree_model.predict(input_df)
-        prediction_proba = decision_tree_model.predict_proba(input_df)
+        prediction = fraud_model.predict(input_df)
+        prediction_proba = fraud_model.predict_proba(input_df)
 
         return jsonify({
             "prediction": int(prediction[0]),
