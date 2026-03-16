@@ -1,12 +1,18 @@
-Credit Card Fraud Detection System
-Project Description
+Credit Card Fraud Detection System:
+
+Project Description:
+
 This project implements a robust machine learning system to identify fraudulent credit card transactions. Using a Decision Tree Classifier, the system distinguishes between genuine and fraudulent activities based on anonymized transaction features.
 
-Key Features
+Key Features:  
+
 Data Preprocessing: Scaling of the 'Amount' feature using StandardScaler to ensure numerical stability.
 Class Imbalance Handling: Utilization of SMOTE (Synthetic Minority Over-sampling Technique) to address the severe imbalance between fraud and genuine classes.
+
 Model: A Decision Tree Classifier trained on balanced data to provide high-accuracy predictions.
-Model Performance
+
+Model Performance:
+
 Based on the project evaluation, the model achieved the following metrics:
 
 Training Score: 1.00 (100% accuracy on resampled training data)
